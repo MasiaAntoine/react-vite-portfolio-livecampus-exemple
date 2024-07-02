@@ -38,3 +38,7 @@ footer {
 button {
   @apply bg-yellow p-2 rounded-lg;
 }
+
+input {
+  @apply px-3 py-2 bg-yellow-light text-gray-700 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm;
+}

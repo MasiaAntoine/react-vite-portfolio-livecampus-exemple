@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 
 const NotFoundPage = () => {
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
+    <section className="flex items-center justify-center h-[68vh]">
       <div className="text-center">
-        <h1 className="text-6xl font-bold">404</h1>
-        <p className="text-xl">Page non trouvée</p>
+        <h1>404</h1>
+        <p>Page non trouvée</p>
         <Link to="/" className="text-blue-500 hover:underline">
           Retour à l'accueil
         </Link>
       </div>
-    </div>
+    </section>
   );
 };
 
