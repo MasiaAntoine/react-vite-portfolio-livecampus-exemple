@@ -16,13 +16,11 @@ import useAuth from "./hooks/useAuth";
 
 const App = () => {
   const { token, login, logout } = useAuth();
-  const [isLoginModalOpen, setLoginModalOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (formData) => {
     try {
       await login(formData);
-      setLoginModalOpen(false);
       navigate("/admin");
     } catch (error) {
       alert(error.message);
