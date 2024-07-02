@@ -1,18 +1,19 @@
-import React from 'react';
+import React from "react";
 
 const Footer = () => {
   return (
-    <footer>
-      <div className="contact-info">
-        <p>Mon nom</p>
-        <p>Mon adresse</p>
-        <p>Mon Code postal</p>
-        <p>Ma ville</p>
-      </div>
-      <div className="contact-info">
-        <p>Mon numéro de téléphone</p>
-        <p>Mon e-mail</p>
-        <p>Autres...</p>
+    <footer className="bg-yellow-dark">
+      <h2 className="mb-4">Me Contacter</h2>
+      <div className="flex justify-between items-center">
+        <div>
+          <p>Masia Antoine</p>
+          <p>8 rue des pain,</p>
+          <p>31400 Toulouse</p>
+        </div>
+        <div>
+          <p>06 45 67 87 97</p>
+          <p>contact@masia-antoine.fr</p>
+        </div>
       </div>
     </footer>
   );
