@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { getProjects } from "/src/shared/endpoints";
+import { getProjectsUrl } from "/src/shared/endpoints";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 
@@ -12,7 +12,7 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get(getProjects);
+        const response = await axios.get(getProjectsUrl);
         console.log("Réponse de l'API :", response.data);
         setProjects(response.data);
         setLoading(false);

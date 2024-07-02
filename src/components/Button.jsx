@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({ text, color }) => {
+const Button = ({ text, color, onClick }) => {
   let colorClass = "bg-yellow-300 text-gray-800";
 
   switch (color) {
@@ -18,7 +18,10 @@ const Button = ({ text, color }) => {
   }
 
   return (
-    <button className={`px-4 py-2 rounded-md focus:outline-none ${colorClass}`}>
+    <button
+      className={`px-4 py-2 rounded-md focus:outline-none ${colorClass}`}
+      onClick={onClick}
+    >
       {text}
     </button>
   );
