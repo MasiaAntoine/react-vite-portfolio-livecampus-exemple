@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Presentation from "./components/Presentation";
 import Projects from "./components/Projects";
 import Footer from "./components/Footer";
-import Modal from "./components/Modal";
+import Login from "./components/Login";
 
 const App = () => {
   const [token, setToken] = useState("");
@@ -57,7 +57,7 @@ const App = () => {
       <Projects />
       <Footer />
 
-      <Modal
+      <Login
         isOpen={isLoginModalOpen}
         onClose={handleCloseLoginModal}
         onSubmit={handleLogin}
