@@ -27,10 +27,14 @@ h3 {
 }
 
 section {
-  @apply py-24 px-16;
+  @apply py-16 px-16;
 }
 
 header,
 footer {
   @apply py-10 px-8 bg-yellow-dark;
+}
+
+button {
+  @apply bg-yellow p-2 rounded-lg;
 }
