@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 
-const Header = ({ token, onLogout }) => {
+const Header = ({ token }) => {
   return (
     <header className="flex justify-between items-center">
       <h1>Antoine Masia</h1>
