@@ -1,31 +1,25 @@
 import { useState } from "react";
-import axios from "axios";
-import { connexionUrl } from "/src/shared/endpoints";
+import { loginApi } from "../api/userApi";
 
 const useAuth = () => {
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
   const login = async (formData) => {
-    try {
-      const response = await axios.post(connexionUrl, formData);
-      setToken(response.data.token);
-    } catch (error) {
-      throw new Error(
-        error.response?.data?.message ||
-          "Une erreur est survenue lors de la connexion."
-      );
+    const response = await loginApi(formData);
+    if (response.token) {
+      localStorage.setItem("token", response.token);
+      setToken(response.token);
+    } else {
+      throw new Error("Invalid credentials");
     }
   };
 
   const logout = () => {
-    setToken("");
+    localStorage.removeItem("token");
+    setToken(null);
   };
 
-  return {
-    token,
-    login,
-    logout,
-  };
+  return { token, login, logout };
 };
 
 export default useAuth;

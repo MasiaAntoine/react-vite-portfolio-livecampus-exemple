@@ -1,15 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Button from "./Button";
 
-const Header = ({ token, onOpenLoginModal, onLogout }) => {
-  const handleOpenLoginModal = () => {
-    onOpenLoginModal();
-  };
-
-  const handleLogoutClick = () => {
-    onLogout();
-  };
-
+const Header = ({ token, onLogout }) => {
   return (
     <header className="flex justify-between items-center">
       <h1>Antoine Masia</h1>
@@ -17,18 +10,15 @@ const Header = ({ token, onOpenLoginModal, onLogout }) => {
         {token ? (
           <>
             <Button text="Modifier les projets" color="dark" />
-            <Button
-              text="Déconnexion"
-              color="danger"
-              onClick={handleLogoutClick}
-            />
+            <Link to="/admin">
+              <Button text="Admin" color="dark" />
+            </Link>
+            <Button text="Déconnexion" color="dark" onClick={onLogout} />
           </>
         ) : (
-          <Button
-            text="Connexion"
-            color="dark"
-            onClick={handleOpenLoginModal}
-          />
+          <Link to="/login">
+            <Button text="Connexion" color="dark" />
+          </Link>
         )}
       </nav>
     </header>
