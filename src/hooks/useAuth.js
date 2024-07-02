@@ -9,6 +9,7 @@ const useAuth = () => {
     if (response.token) {
       localStorage.setItem("token", response.token);
       setToken(response.token);
+      console.log("réussi");
     } else {
       throw new Error("Invalid credentials");
     }

@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import useAuth from "../hooks/useAuth";
 
-const AdminPage = () => {
-  const { token, logout } = useAuth();
+const AdminPage = ({ onLogout }) => {
+  const { token } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,10 +13,14 @@ const AdminPage = () => {
     }
   }, [token, navigate]);
 
+  const handleLogoutClick = () => {
+    onLogout();
+  };
+
   return (
     <div>
       <h1>Admin Page</h1>
-      <Button text="Déconnexion" color="dark" onClick={logout} />
+      <Button text="Déconnexion" color="dark" onClick={handleLogoutClick} />
       {/* Add your admin functionalities here */}
     </div>
   );

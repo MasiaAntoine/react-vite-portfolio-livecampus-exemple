@@ -44,7 +44,7 @@ const App = () => {
           path="/admin"
           element={
             <PrivateRoute>
-              <AdminPage />
+              <AdminPage onLogout={handleLogout} />
             </PrivateRoute>
           }
         />
