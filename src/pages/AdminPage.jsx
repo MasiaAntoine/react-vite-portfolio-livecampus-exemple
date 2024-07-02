@@ -18,11 +18,10 @@ const AdminPage = ({ onLogout }) => {
   };
 
   return (
-    <div>
-      <h1>Admin Page</h1>
+    <section>
+      <h1 className="mb-3">Admin Page</h1>
       <Button text="Déconnexion" color="dark" onClick={handleLogoutClick} />
-      {/* Add your admin functionalities here */}
-    </div>
+    </section>
   );
 };
 
