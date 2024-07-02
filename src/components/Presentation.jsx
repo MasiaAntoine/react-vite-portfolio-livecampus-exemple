@@ -6,7 +6,7 @@ const Presentation = () => {
       <div>
         <img
           className="rounded-full size-36 object-cover"
-          src="./src/assets/avatar.jpeg"
+          src="./src/assets/images/avatar.jpeg"
           alt="Avatar"
         />
       </div>

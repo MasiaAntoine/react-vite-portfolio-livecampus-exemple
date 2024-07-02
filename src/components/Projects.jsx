@@ -1,30 +1,15 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { getProjectsUrl } from "/src/shared/endpoints";
+import React from "react";
+import useProjects from "../hooks/useProjects";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
+import defaultImage from "/src/assets/images/default-project.jpg";
 
 const Projects = () => {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { projects, loading, error } = useProjects();
 
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await axios.get(getProjectsUrl);
-        console.log("Réponse de l'API :", response.data);
-        setProjects(response.data);
-        setLoading(false);
-      } catch (err) {
-        console.error("Erreur lors de la récupération des projets :", err);
-        setError(err.message);
-        setLoading(false);
-      }
-    };
-
-    fetchProjects();
-  }, []);
+  const handleImageError = (e) => {
+    e.target.src = defaultImage;
+  };
 
   if (loading) {
     return <p>Chargement des projets...</p>;
@@ -44,6 +29,7 @@ const Projects = () => {
               src={project.image}
               alt={`Project ${index}`}
               className="w-full h-40 object-cover rounded-t-lg"
+              onError={handleImageError}
             />
             <h3 className="mt-4 text-xl font-semibold">{`Projet ${project.id}`}</h3>
             <p className="text-gray-600">{project.description}</p>
