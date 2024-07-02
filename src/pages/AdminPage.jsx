@@ -20,7 +20,11 @@ const AdminPage = ({ onLogout }) => {
   return (
     <section>
       <h1 className="mb-3">Admin Page</h1>
-      <Button text="Déconnexion" color="dark" onClick={handleLogoutClick} />
+
+      <div className="flex gap-3">
+        <Button text="Modifier les projets" />
+        <Button text="Déconnexion" color="danger" onClick={handleLogoutClick} />
+      </div>
     </section>
   );
 };

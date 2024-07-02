@@ -9,11 +9,9 @@ const Header = ({ token, onLogout }) => {
       <nav className="flex gap-2">
         {token ? (
           <>
-            <Button text="Modifier les projets" color="dark" />
             <Link to="/admin">
               <Button text="Admin" color="dark" />
             </Link>
-            <Button text="Déconnexion" color="dark" onClick={onLogout} />
           </>
         ) : (
           <Link to="/login">
