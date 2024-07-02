@@ -1,11 +1,12 @@
 import React from "react";
+import Button from "/src/components/Button";
 
 const Header = () => {
   return (
     <header className="flex justify-between items-center">
       <h1>Antoine Masia</h1>
       <nav>
-        <a href="#">Se connecter</a>
+        <Button text="Déconnexion" color="danger" />
       </nav>
     </header>
   );
