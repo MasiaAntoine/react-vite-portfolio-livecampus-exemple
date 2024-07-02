@@ -6,7 +6,7 @@ const Header = () => {
     <header className="flex justify-between items-center">
       <h1>Antoine Masia</h1>
       <nav>
-        <Button text="Déconnexion" color="danger" />
+        <Button text="Connexion" color="dark" />
       </nav>
     </header>
   );
