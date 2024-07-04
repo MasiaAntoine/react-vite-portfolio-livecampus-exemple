@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
+import AddProjectPage from "./pages/AddProjectPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import PrivateRoute from "./components/PrivateRoute";
 
@@ -35,6 +36,7 @@ const AppRouter = ({
           </PrivateRoute>
         }
       />
+      <Route path="/add" element={<AddProjectPage isDarkMode={isDarkMode} />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

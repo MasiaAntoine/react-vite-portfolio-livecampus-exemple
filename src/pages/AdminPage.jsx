@@ -22,6 +22,10 @@ const AdminPage = ({ onLogout, isDarkMode }) => {
     navigate("/");
   };
 
+  const redirectToAddProject = () => {
+    navigate("/add");
+  };
+
   return (
     <>
       <section className={`${isDarkMode ? "bg-yellow" : "bg-yellow-light"}`}>
@@ -31,6 +35,11 @@ const AdminPage = ({ onLogout, isDarkMode }) => {
           <Button
             text="Portfolio"
             onClick={redirectToPortfolio}
+            color={isDarkMode ? "dark" : "yellow"}
+          />
+          <Button
+            text="Ajouter Projet"
+            onClick={redirectToAddProject}
             color={isDarkMode ? "dark" : "yellow"}
           />
           <Button
