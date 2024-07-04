@@ -18,6 +18,10 @@ const AdminPage = ({ onLogout, isDarkMode }) => {
     onLogout();
   };
 
+  const redirectToPortfolio = () => {
+    navigate("/");
+  };
+
   return (
     <>
       <section className={`${isDarkMode ? "bg-yellow" : "bg-yellow-light"}`}>
@@ -25,7 +29,8 @@ const AdminPage = ({ onLogout, isDarkMode }) => {
 
         <div className="flex gap-3 mb-6">
           <Button
-            text="Modifier les projets"
+            text="Portfolio"
+            onClick={redirectToPortfolio}
             color={isDarkMode ? "dark" : "yellow"}
           />
           <Button

@@ -14,6 +14,15 @@ const Projects = ({ isDarkMode }) => {
     e.target.src = defaultImage;
   };
 
+  const handleDeleteClick = (projectId) => {
+    const confirmDelete = window.confirm(
+      "Êtes-vous sûr de vouloir supprimer ce projet ?"
+    );
+    if (confirmDelete) {
+      deleteProject(projectId);
+    }
+  };
+
   return (
     <section className={`${isDarkMode ? "bg-yellow-dark" : "bg-yellow "}`}>
       <h2 className="text-2xl font-bold mb-4">Mes projets</h2>
@@ -32,8 +41,8 @@ const Projects = ({ isDarkMode }) => {
               } p-4 rounded-lg shadow-md relative`}
             >
               {token && (
-                <ButtonDelete onDelete={() => deleteProject(project.id)} />
-              )}{" "}
+                <ButtonDelete onDelete={() => handleDeleteClick(project.id)} />
+              )}
               <img
                 src={project.image}
                 alt={`Project ${index}`}
