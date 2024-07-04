@@ -6,7 +6,7 @@ import AdminPage from "./pages/AdminPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import PrivateRoute from "./components/PrivateRoute";
 
-const AppRouter = ({ token, handleLogin, handleLogout }) => {
+const AppRouter = ({ handleLogin, handleLogout }) => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
