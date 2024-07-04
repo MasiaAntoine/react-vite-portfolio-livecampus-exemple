@@ -1,17 +1,8 @@
-import React, { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useNavigate,
-} from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
-import AdminPage from "./pages/AdminPage";
-import NotFoundPage from "./pages/NotFoundPage";
-import PrivateRoute from "./components/PrivateRoute";
+import AppRouter from "./router";
 import useAuth from "./hooks/useAuth";
 
 const App = () => {
@@ -35,19 +26,11 @@ const App = () => {
   return (
     <>
       <Header token={token} onLogout={handleLogout} />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
-        <Route
-          path="/admin"
-          element={
-            <PrivateRoute>
-              <AdminPage onLogout={handleLogout} />
-            </PrivateRoute>
-          }
-        />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <AppRouter
+        token={token}
+        handleLogin={handleLogin}
+        handleLogout={handleLogout}
+      />
       <Footer />
     </>
   );
