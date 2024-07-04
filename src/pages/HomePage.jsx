@@ -2,11 +2,11 @@ import React from "react";
 import Presentation from "../components/Presentation";
 import Projects from "../components/Projects";
 
-const HomePage = () => {
+const HomePage = ({ isDarkMode }) => {
   return (
     <>
-      <Presentation />
-      <Projects />
+      <Presentation isDarkMode={isDarkMode} />
+      <Projects isDarkMode={isDarkMode} />
     </>
   );
 };

@@ -4,7 +4,7 @@ import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 import defaultImage from "/src/assets/images/default-project.jpg";
 
-const Projects = () => {
+const Projects = ({ isDarkMode }) => {
   const { projects, loading, error } = useProjects();
 
   const handleImageError = (e) => {
@@ -20,11 +20,16 @@ const Projects = () => {
   }
 
   return (
-    <section className="bg-yellow">
+    <section className={`${isDarkMode ? "bg-yellow-dark" : "bg-yellow "}`}>
       <h2 className="text-2xl font-bold mb-4">Mes projets</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {projects.map((project, index) => (
-          <div key={index} className="bg-yellow-light p-4 rounded-lg shadow-md">
+          <div
+            key={index}
+            className={`${
+              isDarkMode ? "bg-yellow" : "bg-yellow-light"
+            } p-4 rounded-lg shadow-md`}
+          >
             <img
               src={project.image}
               alt={`Project ${index}`}

@@ -1,8 +1,12 @@
 import React from "react";
 
-const Footer = () => {
+const Footer = ({ isDarkMode }) => {
   return (
-    <footer className="bg-yellow-dark">
+    <footer
+      className={`relative ${
+        isDarkMode ? "bg-yellow-ultradark" : "bg-yellow-dark"
+      }`}
+    >
       <h2 className="mb-4">Me Contacter</h2>
       <div className="flex justify-between items-center">
         <div>
