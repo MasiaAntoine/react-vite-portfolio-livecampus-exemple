@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
-import useAuth from "../hooks/useAuth";
+import { useAuth } from "../contexts/AuthContext";
 
 const AdminPage = ({ onLogout }) => {
   const { token } = useAuth();

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+import { useAuth } from "../contexts/AuthContext";
 
 const LoginPage = () => {
   const { login } = useAuth();
@@ -23,11 +23,11 @@ const LoginPage = () => {
     <section className="flex items-center justify-center h-[68vh]">
       <div className="bg-yellow p-12 rounded-lg w-[30vw] shadow-lg">
         <h2 className="mb-8 text-center">Connexion</h2>
-        <form className="flex flex-col gap-6 " onSubmit={handleSubmit}>
+        <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
           <div className="mb-4">
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700 "
+              className="block text-sm font-medium text-gray-700"
             >
               Email
             </label>

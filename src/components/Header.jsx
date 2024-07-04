@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "./Button";
+import { useAuth } from "../contexts/AuthContext";
 
-const Header = ({ token }) => {
+const Header = () => {
+  const { token } = useAuth();
+
   return (
     <header className="flex justify-between items-center">
       <h1>Antoine Masia</h1>
