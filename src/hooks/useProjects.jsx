@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getProjects } from "../api/projectsApi";
+import { getProjects, deleteProjectById } from "../api/projectsApi";
 
 const useProjects = () => {
   const [projects, setProjects] = useState([]);
@@ -21,10 +21,20 @@ const useProjects = () => {
     fetchProjects();
   }, []);
 
+  const deleteProject = async (id) => {
+    try {
+      await deleteProjectById(id);
+      setProjects(projects.filter((project) => project.id !== id));
+    } catch (err) {
+      setError(err.message || "Erreur lors de la suppression du projet.");
+    }
+  };
+
   return {
     projects,
     loading,
     error,
+    deleteProject,
   };
 };
 
