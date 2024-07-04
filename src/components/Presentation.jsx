@@ -1,8 +1,12 @@
 import React from "react";
 
-const Presentation = () => {
+const Presentation = ({ isDarkMode }) => {
   return (
-    <section className="flex gap-10 items-center justify-center flex-col text-center md:flex-row md:text-left sm:flex-row sm:text-left">
+    <section
+      className={`flex gap-10 items-center justify-center flex-col text-center md:flex-row md:text-left sm:flex-row sm:text-left ${
+        isDarkMode ? "bg-yellow" : "bg-yellow-light"
+      }`}
+    >
       <div>
         <img
           className="rounded-full size-36 object-cover"

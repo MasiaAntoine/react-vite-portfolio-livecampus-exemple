@@ -3,7 +3,7 @@ import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
-const LoginPage = () => {
+const LoginPage = ({ isDarkMode }) => {
   const { login } = useAuth();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -20,8 +20,16 @@ const LoginPage = () => {
   };
 
   return (
-    <section className="flex items-center justify-center h-[68vh]">
-      <div className="bg-yellow p-12 rounded-lg w-[30vw] shadow-lg">
+    <section
+      className={`flex items-center justify-center h-[68vh] ${
+        isDarkMode ? "bg-yellow" : "bg-yellow-light"
+      }`}
+    >
+      <div
+        className={` p-12 rounded-lg w-[30vw] shadow-lg ${
+          isDarkMode ? "bg-yellow-dark" : "bg-yellow"
+        }`}
+      >
         <h2 className="mb-8 text-center">Connexion</h2>
         <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -62,7 +70,11 @@ const LoginPage = () => {
               color="danger"
               onClick={() => navigate("/")}
             />
-            <Button text="Valider" color="dark" type="submit" />
+            <Button
+              text="Valider"
+              color={isDarkMode ? "dark" : "yellow"}
+              type="submit"
+            />
           </div>
         </form>
       </div>

@@ -8,6 +8,7 @@ module.exports = {
           light: "#fefcbf",
           DEFAULT: "#fef08a",
           dark: "#fde047",
+          ultradark: "rgb(244, 205, 0)",
         },
       },
     },
