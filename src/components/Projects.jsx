@@ -2,10 +2,12 @@ import React from "react";
 import useProjects from "../hooks/useProjects";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
+import { useAuth } from "../contexts/AuthContext";
 import defaultImage from "/src/assets/images/default-project.jpg";
 import ButtonDelete from "/src/components/ButtonDelete";
 
 const Projects = ({ isDarkMode }) => {
+  const { token } = useAuth();
   const { projects, loading, error, deleteProject } = useProjects();
 
   const handleImageError = (e) => {
@@ -29,7 +31,9 @@ const Projects = ({ isDarkMode }) => {
                 isDarkMode ? "bg-yellow" : "bg-yellow-light"
               } p-4 rounded-lg shadow-md relative`}
             >
-              <ButtonDelete onDelete={() => deleteProject(project.id)} />
+              {token && (
+                <ButtonDelete onDelete={() => deleteProject(project.id)} />
+              )}{" "}
               <img
                 src={project.image}
                 alt={`Project ${index}`}
