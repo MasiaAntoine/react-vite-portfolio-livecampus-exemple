@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import { addProject } from "../api/projectsApi";
+import FormField from "../components/FormField";
 
 const AddProjectPage = ({ isDarkMode }) => {
   const navigate = useNavigate();
@@ -40,51 +41,57 @@ const AddProjectPage = ({ isDarkMode }) => {
   };
 
   return (
-    <section className={`${isDarkMode ? "bg-yellow" : "bg-yellow-light"}`}>
-      <h1 className="mb-3">Ajouter un Projet</h1>
+    <section
+      className={`flex items-center justify-center h-[68vh] ${
+        isDarkMode ? "bg-yellow" : "bg-yellow-light"
+      }`}
+    >
+      <div
+        className={` p-12 rounded-lg w-[30vw] shadow-lg ${
+          isDarkMode ? "bg-yellow-dark" : "bg-yellow"
+        }`}
+      >
+        <h2 className="mb-3">Ajouter un Projet</h2>
 
-      {error && <p className="text-red-500">{error}</p>}
+        {error && <p className="text-red-500">{error}</p>}
 
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="description" className="block font-medium mb-1">
-            Description <span className="text-red-500">*</span>
-          </label>
-          <textarea
+        <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+          <FormField
+            label="Description *"
             id="description"
             value={description}
             onChange={handleDescriptionChange}
             required
-            className="w-full border rounded-md p-2"
           />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="link" className="block font-medium mb-1">
-            Lien <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="text"
+          <FormField
+            label="Lien *"
             id="link"
             value={link}
             onChange={handleLinkChange}
             required
-            className="w-full border rounded-md p-2"
           />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="image" className="block font-medium mb-1">
-            Image
-          </label>
-          <input
-            type="file"
-            id="image"
-            accept=".jpg, .jpeg, .png"
-            onChange={handleImageChange}
-            className="w-full border rounded-md p-2"
+          <div className="mb-4">
+            <label
+              htmlFor="image"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Image
+            </label>
+            <input
+              type="file"
+              id="image"
+              accept=".jpg, .jpeg, .png"
+              onChange={handleImageChange}
+              className="mt-1 block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+          <Button
+            text="Ajouter Projet"
+            type="submit"
+            color={isDarkMode ? "dark" : "yellow"}
           />
-        </div>
-        <Button text="Ajouter Projet" type="submit" color="primary" />
-      </form>
+        </form>
+      </div>
     </section>
   );
 };

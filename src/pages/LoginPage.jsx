@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "../components/Button";
+import FormField from "../components/FormField";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -32,38 +33,22 @@ const LoginPage = ({ isDarkMode }) => {
       >
         <h2 className="mb-8 text-center">Connexion</h2>
         <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 w-full"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Mot de passe
-            </label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 w-full"
-              required
-            />
-          </div>
+          <FormField
+            label="Email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            required
+          />
+          <FormField
+            label="Mot de passe"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            required
+          />
           <div className="flex justify-end gap-3">
             <Button
               text="Annuler"
